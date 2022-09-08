@@ -57,7 +57,7 @@ MIDDLEWARE = [
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 ROOT_URLCONF = 'tiktok_view.urls'
-WSGI_APPLICATION = 'settings.wsgi.application'
+WSGI_APPLICATION = 'tiktok_view.wsgi.application'
 
 TEMPLATES = [
     {
