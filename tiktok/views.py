@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework import permissions, generics
 from rest_framework.response import Response
 
@@ -10,8 +11,12 @@ class AuthViews(generics.GenericAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return render(request, request)
+        # return Response({"data": serializer.data})
 
-        return Response({"data": serializer.data})
+    # def get(self, request):
+    #     return
 
 class CallBackViews(generics.GenericAPIView):
     serializer_class = CallBackSerializer
