@@ -11,9 +11,10 @@ class AuthViews(generics.GenericAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return render(request, request)
-        # return Response({"data": serializer.data})
+        # serializer.save()
+        print(request.data)
+        # return render(request, request)
+        return Response({"data": serializer.data})
 
     # def get(self, request):
     #     return
@@ -27,5 +28,10 @@ class CallBackViews(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
 
         return Response({"data": serializer.data})
+
+class LinkedInCallBackView(generics.GenericAPIView):
+
+    def post(self, request):
+        return Response({"data": request.data})
 
 
